@@ -2,7 +2,7 @@ import React from "react";
 
 import "./Track.css";
 
-function Track() {
+function Track({ name, artist, album }) {
   const renderAction = (isRemoval) => {
     return <button className="Track-action">{isRemoval ? "-" : "+"}</button>;
   };
@@ -10,8 +10,10 @@ function Track() {
   return (
     <div className="Track">
       <div className="Track-information">
-        <h3>Track name</h3>
-        <p>Artist | Album</p>
+        <h3>{name}</h3>
+        <p>
+          {artist} | {album}
+        </p>
       </div>
       {renderAction(false)}
     </div>
