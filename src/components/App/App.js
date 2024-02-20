@@ -28,6 +28,27 @@ function App() {
       album: "Too Good To Be True",
     },
   ]);
+  const [playlistName, setPlaylistName] = useState("My Awesome Playlist");
+  const [playlistTracks, setPlaylistTracks] = useState([
+    {
+      id: 1,
+      name: "Uptown Funk",
+      artist: "Mark Ronson",
+      album: "Uptown Special",
+    },
+    {
+      id: 2,
+      name: "Fast Car",
+      artist: "Luke Combs",
+      album: "Gettin' Old",
+    },
+    {
+      id: 3,
+      name: "SHAQ & KOBE",
+      artist: "Rick Ross & Meek Mill",
+      album: "Too Good To Be True",
+    },
+  ]);
 
   return (
     <div>
@@ -38,7 +59,10 @@ function App() {
         <SearchBar />
         <div className="App-playlist">
           <SearchResults searchResults={searchResults} />
-          <Playlist />
+          <Playlist
+            playlistName={playlistName}
+            playlistTracks={playlistTracks}
+          />
         </div>
       </div>
     </div>
