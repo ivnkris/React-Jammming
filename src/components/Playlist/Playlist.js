@@ -7,7 +7,7 @@ function Playlist({ playlistTracks }) {
   return (
     <div className="Playlist">
       <input defaultValue={"New Playlist"} />
-      <TrackList tracks={playlistTracks} />
+      <TrackList tracks={playlistTracks} isRemoval={true} />
       <button className="Playlist-save">SAVE TO SPOTIFY</button>
     </div>
   );

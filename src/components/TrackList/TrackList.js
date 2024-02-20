@@ -3,7 +3,7 @@ import React from "react";
 import "./TrackList.css";
 import Track from "../Track/Track";
 
-function TrackList({ tracks }) {
+function TrackList({ tracks, isRemoval }) {
   return (
     <div className="TrackList">
       {tracks
@@ -13,6 +13,7 @@ function TrackList({ tracks }) {
               name={track.name}
               artist={track.artist}
               album={track.album}
+              isRemoval={isRemoval}
             />
           ))
         : null}

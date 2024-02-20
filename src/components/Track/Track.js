@@ -2,7 +2,7 @@ import React from "react";
 
 import "./Track.css";
 
-function Track({ name, artist, album }) {
+function Track({ name, artist, album, isRemoval }) {
   const renderAction = (isRemoval) => {
     return <button className="Track-action">{isRemoval ? "-" : "+"}</button>;
   };
@@ -15,7 +15,7 @@ function Track({ name, artist, album }) {
           {artist} | {album}
         </p>
       </div>
-      {renderAction(false)}
+      {renderAction(isRemoval)}
     </div>
   );
 }
