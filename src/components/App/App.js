@@ -28,7 +28,7 @@ function App() {
       album: "Too Good To Be True",
     },
   ]);
-  const [playlistName, setPlaylistName] = useState("My Awesome Playlist");
+  const [playlistName, setPlaylistName] = useState("New Playlist");
   const [playlistTracks, setPlaylistTracks] = useState([]);
 
   const addTrack = (track) => {
@@ -45,6 +45,10 @@ function App() {
     );
   };
 
+  const updatePlaylistName = (name) => {
+    setPlaylistName(name);
+  };
+
   return (
     <div>
       <h1>
@@ -58,6 +62,7 @@ function App() {
             playlistName={playlistName}
             playlistTracks={playlistTracks}
             onRemove={removeTrack}
+            onNameChange={updatePlaylistName}
           />
         </div>
       </div>
