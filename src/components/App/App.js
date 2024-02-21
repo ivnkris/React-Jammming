@@ -29,14 +29,7 @@ function App() {
     },
   ]);
   const [playlistName, setPlaylistName] = useState("My Awesome Playlist");
-  const [playlistTracks, setPlaylistTracks] = useState([
-    {
-      id: 1,
-      name: "Uptown Funk",
-      artist: "Mark Ronson",
-      album: "Uptown Special",
-    },
-  ]);
+  const [playlistTracks, setPlaylistTracks] = useState([]);
 
   const addTrack = (track) => {
     if (playlistTracks.find((savedTrack) => savedTrack.id === track.id)) {
@@ -44,6 +37,12 @@ function App() {
     } else {
       setPlaylistTracks((prev) => [...prev, track]);
     }
+  };
+
+  const removeTrack = (track) => {
+    setPlaylistTracks((prev) =>
+      prev.filter((savedTrack) => savedTrack.id !== track.id)
+    );
   };
 
   return (
@@ -58,6 +57,7 @@ function App() {
           <Playlist
             playlistName={playlistName}
             playlistTracks={playlistTracks}
+            onRemove={removeTrack}
           />
         </div>
       </div>

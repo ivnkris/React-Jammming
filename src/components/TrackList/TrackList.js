@@ -3,7 +3,7 @@ import React from "react";
 import "./TrackList.css";
 import Track from "../Track/Track";
 
-function TrackList({ tracks, isRemoval, onAdd }) {
+function TrackList({ tracks, isRemoval, onAdd, onRemove }) {
   return (
     <div className="TrackList">
       {tracks
@@ -13,6 +13,7 @@ function TrackList({ tracks, isRemoval, onAdd }) {
               track={track}
               isRemoval={isRemoval}
               onAdd={onAdd}
+              onRemove={onRemove}
             />
           ))
         : null}

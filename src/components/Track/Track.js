@@ -2,10 +2,13 @@ import React from "react";
 
 import "./Track.css";
 
-function Track({ track, isRemoval, onAdd }) {
+function Track({ track, isRemoval, onAdd, onRemove }) {
   const renderAction = (isRemoval) => {
     return (
-      <button className="Track-action" onClick={addTrack}>
+      <button
+        className="Track-action"
+        onClick={isRemoval ? removeTrack : addTrack}
+      >
         {isRemoval ? "-" : "+"}
       </button>
     );
@@ -13,6 +16,10 @@ function Track({ track, isRemoval, onAdd }) {
 
   const addTrack = () => {
     onAdd(track);
+  };
+
+  const removeTrack = () => {
+    onRemove(track);
   };
 
   return (
