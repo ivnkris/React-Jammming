@@ -36,19 +36,15 @@ function App() {
       artist: "Mark Ronson",
       album: "Uptown Special",
     },
-    {
-      id: 2,
-      name: "Fast Car",
-      artist: "Luke Combs",
-      album: "Gettin' Old",
-    },
-    {
-      id: 3,
-      name: "SHAQ & KOBE",
-      artist: "Rick Ross & Meek Mill",
-      album: "Too Good To Be True",
-    },
   ]);
+
+  const addTrack = (track) => {
+    if (playlistTracks.find((savedTrack) => savedTrack.id === track.id)) {
+      return;
+    } else {
+      setPlaylistTracks((prev) => [...prev, track]);
+    }
+  };
 
   return (
     <div>
@@ -58,7 +54,7 @@ function App() {
       <div className="App">
         <SearchBar />
         <div className="App-playlist">
-          <SearchResults searchResults={searchResults} />
+          <SearchResults searchResults={searchResults} onAdd={addTrack} />
           <Playlist
             playlistName={playlistName}
             playlistTracks={playlistTracks}
