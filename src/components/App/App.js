@@ -14,18 +14,21 @@ function App() {
       name: "Uptown Funk",
       artist: "Mark Ronson",
       album: "Uptown Special",
+      uri: "www.spotify.com",
     },
     {
       id: 2,
       name: "Fast Car",
       artist: "Luke Combs",
       album: "Gettin' Old",
+      uri: "www.spotify.com",
     },
     {
       id: 3,
       name: "SHAQ & KOBE",
       artist: "Rick Ross & Meek Mill",
       album: "Too Good To Be True",
+      uri: "www.spotify.com",
     },
   ]);
   const [playlistName, setPlaylistName] = useState("New Playlist");
@@ -49,6 +52,11 @@ function App() {
     setPlaylistName(name);
   };
 
+  const savePlaylist = () => {
+    const trackURIs = playlistTracks.map((track) => track.uri);
+    return trackURIs;
+  };
+
   return (
     <div>
       <h1>
@@ -63,6 +71,7 @@ function App() {
             playlistTracks={playlistTracks}
             onRemove={removeTrack}
             onNameChange={updatePlaylistName}
+            onSave={savePlaylist}
           />
         </div>
       </div>
